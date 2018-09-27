@@ -1,0 +1,19 @@
+{
+  "beans": {
+    "userModel": {
+      "class": "model/user"
+    },
+    "userService": {
+      "class": "service/user",
+      "beans": {
+        "userModel": "userModel"
+      }
+    },
+    "server": {
+      "class": "server",
+      "beans": {
+        "userService": "userService"
+      }
+    }
+  }
+}

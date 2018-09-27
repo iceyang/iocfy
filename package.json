@@ -14,7 +14,7 @@
     "url": "git+https://github.com/iceyang/iocfy.git"
   },
   "keywords": [
-    "nodejs",
+    "inverse of controller",
     "ioc"
   ],
   "author": "Justin",
