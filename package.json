@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/iceyang/iocfy/issues"
   },
-  "homepage": "https://github.com/iceyang/iocfy#readme"
+  "homepage": "https://github.com/iceyang/iocfy#readme",
+  "dependencies": {}
 }
