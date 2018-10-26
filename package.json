@@ -1,6 +1,6 @@
 {
   "name": "iocfy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple ioc module for node.js",
   "main": "index.js",
   "directories": {

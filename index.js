@@ -33,12 +33,20 @@ class Iocify {
     this._error(beanName, `type error. there's not type: ${type}`);
   }
 
+  _defineProperty(beanInstance, property, value) {
+    Object.defineProperty(beanInstance, property, {
+      value,
+      enumerable: true
+    });
+  }
+
   _injectBeanFields(beanInstance, beanFieldsConfig) {
     if (!beanFieldsConfig || Object.keys(beanFieldsConfig).length === 0) return;
     for (const name in beanFieldsConfig) {
-      beanInstance[name] = util.isArray(beanFieldsConfig[name]) ?
+      const value = util.isArray(beanFieldsConfig[name]) ?
         beanFieldsConfig[name].map(beanName => this.beanFactory.get(beanName)) :
         this.beanFactory.get(beanFieldsConfig[name]) ;
+      this._defineProperty(beanInstance, name, value);
     }
   }
 
@@ -47,7 +55,7 @@ class Iocify {
       Object.keys(beanPropertiesConfig).length !== 0) {
       for (const propertyName in beanPropertiesConfig) {
         const config = beanPropertiesConfig[propertyName];
-        beanInstance[propertyName] = getPropertyValue(config);
+        this._defineProperty(beanInstance, propertyName, getPropertyValue(config));
       }
     }
     return;
